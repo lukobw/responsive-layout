@@ -1,0 +1,286 @@
+$header-background: #2f4f4f;
+$line-height: 50px;
+$white: #fff;
+$max-width: 1200px;
+$height50: 50px;
+$width: 100%;
+
+@import url('https://fonts.googleapis.com/css?family=Bellefair&subset=latin-ext');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Bellefair", sans-serif;
+  margin: 0;
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.row {
+  &::before, 
+  &::after { 
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+header {
+  height: $height50;
+  background-color: $header-background;
+
+  & nav {
+    width: $width;
+    height: $height50;
+  
+    & img {
+      float: left;
+    }
+    & ul {
+      float: right;
+      list-style-type: none;
+      line-height: $line-height;
+      margin: 0;
+      padding: 0;
+
+    & li {
+      display: inline-block;
+        
+    & a {
+      text-decoration: none;
+      color: white;
+      padding: 0 20px;;
+      text-transform: uppercase;
+      display: block;
+      
+          
+      &:hover {
+        background-color: #1e3e3e;
+      }
+    }
+    }
+    }
+  }
+}  
+
+.hero {
+
+    min-height: 1000px;
+    background: url('https://images.pexels.com/photos/356043/pexels-photo-356043.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb') no-repeat center center;
+    background-size: cover;
+    width: 100%;       
+}
+
+.gallery {
+  margin: 20px 0;
+  overflow: hidden;
+  width: $width;
+
+  & img {
+    width: $width;
+  }
+}
+
+.photo {
+  width: 30%;
+  float: left;
+  margin-right: 5%;
+  height: 100%;
+  
+    &:last-of-type {
+      margin-right: 0;
+  }
+}
+
+.map img{
+  width: $width;
+}
+
+footer {
+  width: $width;
+  height: $height50;
+  background-color: darkslategray;
+  text-align: center;
+  margin: 0;
+
+  & .container {
+    line-height: $line-height;
+    color: white;
+    font-size: 1rem;  
+  }
+}
+
+                    // MEDIA QUERIES
+
+//MIN 992px MAX 1199//
+
+@media(min-width: 992px) and (max-width: 1199px) {
+ 
+  header {
+
+    & nav {
+      text-align: center;
+
+      &::after, &::before {
+        clear: both;
+        content: ' ';
+        display: table;
+      }
+
+      & img {
+        float: none;
+      }
+      
+      & ul {
+        display: inline-block;
+        color: black;
+        padding: 0;
+        background: darkslategray;
+        line-height: 50px;
+        width: $width;
+        text-align: center;
+    
+         & li {
+          margin: 0;
+
+          & a {
+            padding: 0 10px;
+            display: block;
+            color: $white;
+
+          }
+        }  
+      }
+    }
+  } 
+
+  .photo {
+    margin-right: 3%;
+  }
+
+  .hero {
+    height: auto;
+  }  
+}
+
+//MIN 768px MAX 991px//
+
+@media(min-width: 768px) and (max-width: 991px) {
+  
+  header {
+  
+    & nav {
+      text-align: center;
+
+      &::after, &::before {
+        clear: both;
+        content: ' ';
+        display: table;
+      }
+
+      & ul {
+      float: none;
+      background: darkslategray;
+      width: $width;
+      display: inline-block;
+      padding: 0;
+  
+        & li {
+          margin: 0 auto;
+
+          & a {
+            padding: 0 10px;
+          }
+        }  
+      } 
+
+      & img {
+        float: none;
+      } 
+    }        
+  }  
+
+  footer {
+
+    & .container {
+    font-size: 1rem;
+    }
+  }
+
+  .hero {
+    height: 50vh;
+  }
+}
+
+//MAX 767px //
+
+@media(max-width: 767px) {
+  
+  header {
+  
+    & nav {
+      float: none;
+      text-align: center; 
+
+      & ul {
+      width: $width;
+      background: darkslategray;
+      padding: 0;
+   
+        & li {
+          display: block;
+          margin: 0;
+          text-align: center;
+          line-height: 1;
+                       
+          & a {
+            color: $white;
+            padding: 10px 0;
+
+            &::after {
+              border: 2px solid red;
+            }
+
+            
+          }
+        }
+      }
+      & img {
+      float: none;
+      text-align: center;
+      } 
+    }
+  }
+
+  .gallery .container {
+  text-align: center;
+  padding: 10px;
+  }
+
+  .photo {
+  margin: 0 auto;
+  float: none;
+  width: $width;
+  padding: 10px;
+
+  &:last-of-type {
+    margin: 0 auto;
+    }
+  }
+
+  .hero {
+    display: flex;
+  }
+
+  footer {
+
+    & .container {
+    font-size: 1rem;
+    }
+  }
+}
